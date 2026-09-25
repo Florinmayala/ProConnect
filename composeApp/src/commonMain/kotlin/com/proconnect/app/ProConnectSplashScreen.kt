@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
@@ -32,8 +34,8 @@ import org.jetbrains.compose.resources.painterResource
 import com.proconnect.app.resources.Res
 import com.proconnect.app.resources.proconnect_building_bw
 
-private val Ink = Color(0xFF111B25)
-private val SloganInk = Color(0xFF344354)
+internal val Ink = Color(0xFF111B25)
+internal val SloganInk = Color(0xFF344354)
 
 @Composable
 fun ProConnectSplashScreen() {
@@ -46,9 +48,23 @@ fun ProConnectSplashScreen() {
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .height(maxHeight * 0.51f),
+                .height(maxHeight * 0.62f),
             contentScale = ContentScale.Crop,
             alignment = Alignment.BottomCenter,
+        )
+
+        Box(
+            Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        0f to Color.White,
+                        0.38f to Color.White,
+                        0.43f to Color.White.copy(alpha = 0.85f),
+                        0.49f to Color.Transparent,
+                        1f to Color.Transparent,
+                    ),
+                ),
         )
 
         Column(
@@ -93,7 +109,7 @@ fun ProConnectSplashScreen() {
 }
 
 @Composable
-private fun ProConnectLogo(modifier: Modifier = Modifier) {
+internal fun ProConnectLogo(modifier: Modifier = Modifier) {
     Canvas(modifier) {
         val sx = size.width / 92f
         val sy = size.height / 76f
@@ -118,13 +134,27 @@ private fun ProConnectLogo(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun OnboardingIndicator(modifier: Modifier = Modifier) {
+internal fun OnboardingIndicator(
+    modifier: Modifier = Modifier,
+    currentPage: Int = 0,
+    onDarkBackground: Boolean = true,
+) {
     Row(modifier, horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
         repeat(3) { index ->
             Canvas(Modifier.size(8.dp)) {
-                drawCircle(if (index == 0) Color.White else Color(0xFF8B949C), radius = size.minDimension / 2)
-                if (index != 0) {
-                    drawCircle(Color(0xFF17212A), radius = size.minDimension / 4)
+                drawCircle(
+                    if (index == currentPage) {
+                        if (onDarkBackground) Color.White else Ink
+                    } else {
+                        Color(0xFF8B949C)
+                    },
+                    radius = size.minDimension / 2,
+                )
+                if (index != currentPage) {
+                    drawCircle(
+                        if (onDarkBackground) Color(0xFF17212A) else Color.White,
+                        radius = size.minDimension / 4,
+                    )
                 }
             }
         }

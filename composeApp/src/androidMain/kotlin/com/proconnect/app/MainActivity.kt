@@ -12,6 +12,6 @@ class MainActivity : Activity() {
         window.navigationBarColor = android.graphics.Color.BLACK
         @Suppress("DEPRECATION")
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        setContentView(ComposeView(this).apply { setContent { ProConnectSplashScreen() } })
+        setContentView(ComposeView(this).apply { setContent { ProConnectOnboardingFlow() } })
     }
 }

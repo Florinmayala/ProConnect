@@ -1,0 +1,25 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 56;
+    objects = {
+        010000000000000000000001 = {isa = PBXProject; attributes = {LastUpgradeCheck = 1500;}; buildConfigurationList = 010000000000000000000009; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en); mainGroup = 010000000000000000000002; productRefGroup = 010000000000000000000003; projectDirPath = ""; projectRoot = ""; targets = (010000000000000000000004);};
+        010000000000000000000002 = {isa = PBXGroup; children = (010000000000000000000005, 010000000000000000000003); sourceTree = "<group>";};
+        010000000000000000000003 = {isa = PBXGroup; children = (010000000000000000000006); name = Products; sourceTree = "<group>";};
+        010000000000000000000004 = {isa = PBXNativeTarget; buildConfigurationList = 01000000000000000000000A; buildPhases = (01000000000000000000000B, 01000000000000000000000C, 01000000000000000000000D); buildRules = (); dependencies = (); name = iosApp; productName = iosApp; productReference = 010000000000000000000006; productType = "com.apple.product-type.application";};
+        010000000000000000000005 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosApp/ProConnectIOSApp.swift; sourceTree = "<group>";};
+        010000000000000000000006 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR;};
+        010000000000000000000007 = {isa = PBXBuildFile; fileRef = 010000000000000000000005;};
+        010000000000000000000009 = {isa = XCConfigurationList; buildConfigurations = (010000000000000000000010, 010000000000000000000011); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;};
+        01000000000000000000000A = {isa = XCConfigurationList; buildConfigurations = (01000000000000000000000E, 01000000000000000000000F); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;};
+        01000000000000000000000B = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (); inputFileListPaths = (); inputPaths = (); name = "Build Kotlin framework"; outputFileListPaths = (); outputPaths = (); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/sh; shellScript = "cd \"$SRCROOT/..\"\nsh ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode\n";};
+        01000000000000000000000C = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (010000000000000000000007); runOnlyForDeploymentPostprocessing = 0;};
+        01000000000000000000000D = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;};
+        01000000000000000000000E = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; ENABLE_USER_SCRIPT_SANDBOXING = NO; FRAMEWORK_SEARCH_PATHS = ("$(inherited)", "$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"); GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = ProConnect; IPHONEOS_DEPLOYMENT_TARGET = 14.0; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); OTHER_LDFLAGS = ("$(inherited)", "-framework", ComposeApp); PRODUCT_BUNDLE_IDENTIFIER = com.proconnect.app; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1;}; name = Debug;};
+        01000000000000000000000F = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; ENABLE_USER_SCRIPT_SANDBOXING = NO; FRAMEWORK_SEARCH_PATHS = ("$(inherited)", "$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"); GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = ProConnect; IPHONEOS_DEPLOYMENT_TARGET = 14.0; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); OTHER_LDFLAGS = ("$(inherited)", "-framework", ComposeApp); PRODUCT_BUNDLE_IDENTIFIER = com.proconnect.app; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1;}; name = Release;};
+        010000000000000000000010 = {isa = XCBuildConfiguration; buildSettings = {IPHONEOS_DEPLOYMENT_TARGET = 14.0; SDKROOT = iphoneos;}; name = Debug;};
+        010000000000000000000011 = {isa = XCBuildConfiguration; buildSettings = {IPHONEOS_DEPLOYMENT_TARGET = 14.0; SDKROOT = iphoneos;}; name = Release;};
+    };
+    rootObject = 010000000000000000000001;
+}
